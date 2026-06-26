@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nós | ShopStack Engineering</title>
+
+  <!-- SEO Primary Meta Tags -->
+  <meta name="description"
+    content="Conheça a ShopStack, uma agência boutique de engenharia especializada no ecossistema Shopify. Entregamos alta performance, migrações seguras e sustentação completa.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shopstack.com.br/sobre.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%230070f3%22/><stop offset=%22100%25%22 stop-color=%22%237928ca%22/></linearGradient><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22url(%23g)%22/><circle cx=%2250%22 cy=%2250%22 r=%2215%22 fill=%22%2300f2fe%22/></svg>">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shopstack.com.br/sobre.html">
+  <meta property="og:title" content="Sobre Nós | ShopStack Engineering">
+  <meta property="og:description"
+    content="Conheça a ShopStack, uma agência boutique de engenharia especializada no ecossistema Shopify.">
+  <meta property="og:image"
+    content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://shopstack.com.br/sobre.html">
+  <meta name="twitter:title" content="Sobre Nós | ShopStack Engineering">
+  <meta name="twitter:description"
+    content="Conheça a ShopStack, uma agência boutique de engenharia especializada no ecossistema Shopify.">
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#030303">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://shopstack.com.br/#organization",
+        "name": "ShopStack",
+        "url": "https://shopstack.com.br/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://shopstack.com.br/logo.svg"
+        },
+        "description": "Engenharia de alta performance, migrações seguras, soluções sob medida e sustentação completa para plataformas de e-commerce e ecossistema Shopify.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Florianópolis",
+          "addressRegion": "SC",
+          "addressCountry": "BR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+5548984762180",
+          "contactType": "customer service",
+          "email": "contato@shopstack.com.br",
+          "availableLanguage": ["Portuguese", "English"]
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://shopstack.com.br/sobre.html#webpage",
+        "url": "https://shopstack.com.br/sobre.html",
+        "name": "Sobre Nós | ShopStack Engineering",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://shopstack.com.br/#website",
+          "url": "https://shopstack.com.br/",
+          "name": "ShopStack"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-image-column {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .about-image-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .about-main-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition-smooth);
+      filter: grayscale(0.2) contrast(1.1);
+    }
+    .about-image-wrapper:hover .about-main-image {
+      filter: grayscale(0) contrast(1);
+      transform: scale(1.02);
+    }
+    .about-image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(3,3,3,0.4));
+      pointer-events: none;
+    }
+    @media (max-width: 991px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .about-image-wrapper {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header Navigation -->
+  <header class="header-nav scrolled" id="headerNav">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-dot"></div>
+        ShopStack
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html#solucoes" class="nav-link">Soluções</a></li>
+        <li><a href="index.html#processo" class="nav-link">Evolução Contínua</a></li>
+        <li><a href="index.html#cases" class="nav-link">Cases</a></li>
+      </ul>
+      <div class="header-cta-wrapper">
+        <a href="index.html#diagnostico" class="cta-pulse-border">
+          <div class="cta-pulse-border-inner">
+            <span class="desktop-text">Falar com Especialista</span>
+            <span class="mobile-text">Contato</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Main Section -->
+  <main style="padding-top: 140px; min-height: calc(100vh - 200px); background: var(--bg-deep);">
+    <section class="section-padding" style="padding-top: 60px;">
+      <div class="container">
+        
+        <div class="about-grid">
+          <!-- Text Column -->
+          <div>
+            <span class="neon-gradient-text" style="font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; font-size: 14px;">Quem Somos</span>
+            <h1 class="glow-text" style="font-size: clamp(36px, 4.5vw, 56px); margin-top: 16px; margin-bottom: 32px; line-height: 1.15;">Nossa Missão é Blindar a sua Operação Digital</h1>
+            
+            <div style="font-size: 16px; line-height: 1.8; display: flex; flex-direction: column; gap: 24px;">
+              <p>A <strong>ShopStack</strong> nasceu da insatisfação com soluções de e-commerce genéricas e de baixa performance. Entendemos que marcas premium com alto volume de vendas não podem se dar ao luxo de perder clientes por lentidão de carregamento, checkout quebrado ou falhas de integração no ERP.</p>
+              
+              <p>Somos uma agência boutique de <strong>Engenharia de Software e Sustentação Técnica dedicada exclusivamente ao ecossistema Shopify</strong>. Desenvolvemos checkouts de alta conversão, integramos ERPs complexos de forma bidirecional em tempo real e criamos aplicativos Shopify sob medida para atender modelos de negócios desafiadores (D2C, B2B e Omnichannel).</p>
+              
+              <p>Nosso diferencial está no rigor técnico de nossos desenvolvedores sêniores. Utilizamos ferramentas modernas como Shopify Hydrogen, React e GraphQL, e testamos continuamente cada recurso sob estresse de carga. O resultado são e-commerces que carregam instantaneamente e nunca caem, mesmo em picos extremos de tráfego, como na Black Friday ou em lives de grandes influenciadores.</p>
+            </div>
+          </div>
+
+          <!-- Image Column -->
+          <div class="about-image-column">
+            <div class="about-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Equipe de Engenharia ShopStack" class="about-main-image">
+              <div class="about-image-overlay"></div>
+            </div>
+            <div class="about-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" alt="Código limpo e escalável" class="about-main-image">
+              <div class="about-image-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Values/Bento Section -->
+        <div style="margin-top: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+          <div class="bento-card" style="padding: 24px; cursor: default;">
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: white;">Nossos Valores</h3>
+            <p style="font-size: 14px;">Transparência absoluta, código limpo e responsabilidade no cumprimento de acordos de nível de serviço (SLA).</p>
+          </div>
+          <div class="bento-card" style="padding: 24px; cursor: default;">
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: white;">Foco na Margem</h3>
+            <p style="font-size: 14px;">Cada milissegundo otimizado no carregamento é projetado para aumentar as taxas de conversão de vendas.</p>
+          </div>
+          <div class="bento-card" style="padding: 24px; cursor: default;">
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: white;">Suporte 24/7</h3>
+            <p style="font-size: 14px;">Monitoramento de logs preditivos para atuar de forma proativa antes que qualquer incidente afete seu cliente final.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 60px; text-align: center;">
+          <a href="index.html#diagnostico" class="btn btn-primary">
+            <span>Agendar Sessão Estratégica</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <a href="index.html" class="logo footer-logo">
+        <span>ShopStack</span>
+        <div class="logo-dot"></div>
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html#solucoes">Soluções</a></li>
+        <li><a href="index.html#processo">Evolução Contínua</a></li>
+        <li><a href="index.html#cases">Cases</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="index.html#diagnostico">Contato</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 ShopStack Engineering. Todos os direitos reservados. Foco absoluto em escala e performance.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

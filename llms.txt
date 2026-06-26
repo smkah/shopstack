@@ -1,0 +1,26 @@
+# ShopStack
+
+> Operação Completa de Engenharia & Sustentação para E-commerce Shopify de Alta Escala.
+
+This is the developer directory and organizational profile of ShopStack, a premium B2B engineering agency specialized in high-performance Shopify operations, custom application development, and 24/7 uptime monitoring.
+
+## Core Information
+- **Domain**: https://shopstack.com.br/
+- **Main Stack**: Shopify Plus, Shopify Hydrogen, Oxygen, React, Next.js, Node.js, GraphQL, AWS Serverless.
+- **Key Offerings**: 
+  - Custom Shopify App Development
+  - Platform Migrations (legacy systems to Shopify Plus)
+  - Performance Optimization (Core Web Vitals)
+  - 24/7 Sustentation & Uptime Monitoring
+  - B2B & Atacado Digital operations
+  - Omnichannel / Unified Commerce
+
+## Navigation
+- [Homepage](https://shopstack.com.br/) - Main landing page, portfolio, case studies, and FAQ.
+- [Sobre Nós](https://shopstack.com.br/sobre.html) - Detailed organizational profile, developer seniority, and tech stack details.
+- [Contato](https://shopstack.com.br/#diagnostico) - Actionable contact details, WhatsApp channel, and strategic diagnostic request.
+
+## Target Audience & Verticals
+1. **D2C & Marcas Proprietárias**: Brands with massive traffic drops, influencers, custom checkouts.
+2. **B2B & Atacado Digital**: Businesses requiring dynamic CNPJ pricing, complex billing, ERP sync.
+3. **Omnichannel & Redes de Varejo**: Retail chains needing physical/digital stock unification and O2O logistics.

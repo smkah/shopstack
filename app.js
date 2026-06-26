@@ -357,88 +357,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Swipe and Drag gesture handling
+  let isDragging = false;
+  let startX = 0;
+  let diffX = 0;
+
+  function getPositionX(e) {
+    return e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+  }
+
+  function dragStart(e) {
+    isDragging = true;
+    startX = getPositionX(e);
+    diffX = 0;
+    casesSliderInner.style.transition = 'none';
+    if (!e.type.includes('touch')) {
+      e.preventDefault(); // prevents image drag ghosts
+    }
+  }
+
+  function dragMove(e) {
+    if (!isDragging) return;
+    const currentX = getPositionX(e);
+    diffX = currentX - startX;
+
+    const containerWidth = casesSliderInner.offsetWidth;
+    const dragPercent = (diffX / containerWidth) * 100;
+    const targetTranslate = -currentSlide * 100 + dragPercent;
+    casesSliderInner.style.transform = `translateX(${targetTranslate}%)`;
+  }
+
+  function dragEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    casesSliderInner.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+
+    if (diffX < -50) {
+      currentSlide = (currentSlide + 1) % slides.length;
+    } else if (diffX > 50) {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    }
+
+    updateSlider();
+  }
+
+  // Mouse gestures
+  casesSliderInner.addEventListener('mousedown', dragStart);
+  casesSliderInner.addEventListener('mousemove', dragMove);
+  casesSliderInner.addEventListener('mouseup', dragEnd);
+  casesSliderInner.addEventListener('mouseleave', dragEnd);
+
+  // Touch gestures
+  casesSliderInner.addEventListener('touchstart', dragStart, { passive: true });
+  casesSliderInner.addEventListener('touchmove', dragMove, { passive: true });
+  casesSliderInner.addEventListener('touchend', dragEnd);
+
   // Initialize
   updateSlider();
-
-
-  // ==========================================
-  // 9. FORM FLOATING LABELS & MOCK SUBMIT
-  // ==========================================
-  const diagnosticoForm = document.getElementById('diagnosticoForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const submitIcon = document.getElementById('submitIcon');
-
-  diagnosticoForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Get input values
-    const nome = document.getElementById('formNome').value;
-    const email = document.getElementById('formEmail').value;
-    const plataforma = document.getElementById('formPlataforma').value;
-    const faturamento = document.getElementById('formFaturamento').value;
-    const dor = document.getElementById('formDor').value;
-
-    // Format WhatsApp Message
-    const msg = `Olá ShopStack! Gostaria de solicitar um Diagnóstico de Operação.
-
-Aqui estão meus dados técnicos:
-• Nome: ${nome}
-• E-mail: ${email}
-• Plataforma Atual: ${plataforma}
-• Faturamento Mensal: ${faturamento}
-• Principal Desafio: ${dor}`;
-
-    const whatsappNumber = "5548984762180"; // Placeholder Number (replace with real brand phone)
-    const encodedMsg = encodeURIComponent(msg);
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMsg}`;
-
-    // Disable button & trigger mock gradient loading effect
-    submitBtn.disabled = true;
-    submitBtn.style.opacity = '0.7';
-    submitBtn.querySelector('span').innerText = "Redirecionando para o WhatsApp...";
-
-    // Switch icon to a loading indicator
-    submitIcon.outerHTML = `<svg class="animate-spin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" style="animation: spin 1s linear infinite;"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)"></circle><path d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4z" fill="currentColor"></path></svg>`;
-
-    setTimeout(() => {
-      // Redirect to WhatsApp in new window
-      window.open(whatsappUrl, '_blank');
-
-      // Mock Success State
-      diagnosticoForm.innerHTML = `
-        <div class="success-message" style="text-align: center; padding: 40px 0; animation: fadeIn 0.6s ease forwards;">
-          <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(0, 242, 254, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: var(--neon-cyan);">
-            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h3 style="font-size: 24px; margin-bottom: 12px; color: white;">Conexão Iniciada no WhatsApp!</h3>
-          <p style="color: var(--text-muted); max-width: 450px; margin: 0 auto 24px;">Caso a janela de conversa não tenha aberto automaticamente, clique no botão abaixo para prosseguir com o envio das informações de diagnóstico técnico.</p>
-          <a href="${whatsappUrl}" target="_blank" class="btn btn-primary" style="margin-top: 10px;">
-            <span>Abrir Conversa Manualmente</span>
-          </a>
-        </div>
-      `;
-    }, 1500);
-  });
-
-  // Inject spin CSS animation dynamically
-  const style = document.createElement('style');
-  style.innerHTML = `
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  `;
-  document.head.appendChild(style);
 
 
   // ==========================================
   // 10. MAGNETIC BUTTON EFFECT
   // ==========================================
   // Apply magnetic effect to specific buttons
-  const magneticBtns = document.querySelectorAll('.btn-primary, .cta-pulse-border');
+  const magneticBtns = document.querySelectorAll('.btn-primary, .cta-pulse-border, .whatsapp-btn');
 
   magneticBtns.forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
